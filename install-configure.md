@@ -12,10 +12,16 @@ Pour réaliser cet exercice vous avez besoin :
 
 ## Installation de composer 
 
-
+* Récupérer composer en fonction de votre OS : https://getcomposer.org/download/
+* Ajouter Composer dans le path : https://getcomposer.org/doc/00-intro.md
+* Vérifier le fonctionnement avec la commande :
+```
+composer --version
+```
 
 
 ## Création de la première application 
 
+* 
 
 ## Activation du mode développement 
