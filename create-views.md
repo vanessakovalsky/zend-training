@@ -1,8 +1,44 @@
 # Création des vues associées à notre controlleur 
 
 Cet exercice a pour objectifs de :
+* Définir un thème à notre application
 * Créer des vues pour afficher du contenu
 * Associer des vues à notre controlleur
+
+## Définition du thème
+* Créer un fichier layout.phtml dans view/layout/ afin de définir le thème général de notre application.
+* Celui-ci peut appeler des feuilles de styles ou un framework comme bootstrap par exemple :
+```
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('ZF Lazy loading module') ?>
+        <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+        <?php echo $this->headLink() ?>
+        <?php echo $this->headScript() ?>
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="<?php echo $this->url('home') ?>">Home</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+        <?php echo $this->content; ?>
+        <hr>
+        <footer>
+            My footer
+        </footer>
+        </div>
+    </body>
+
+</html>
+```
 
 ## Création des vues 
 
