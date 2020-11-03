@@ -37,7 +37,7 @@ Do you want a minimal install (no optional packages)? Y/n
 
 ## Configurer Apache
 
-* Créer un fichier /etc/apache2/sites-enabled/laminas-mvc-tutorial et ajouter le contenu suivant :
+* Créer un fichier /etc/apache2/sites-enabled/laminas-mvc-tutorial.conf et ajouter le contenu suivant :
 ```
 <VirtualHost *:80>
     ServerName laminas-mvc-tutorial.localhost
