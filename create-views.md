@@ -84,6 +84,29 @@ $this->headTitle($title);
 * Dans cet exemple nous faisons une boucle sur le tableau contenant la liste des jeux et nous affichons avant le tableau un lien pour ajouter un nouveau jeu, et au sein du tableau un lien pour modifier la fiche d'un jeu et un lien pour supprimer le jeu.
 * Créer également les templates pour afficher le jeu, celui pour le modifier et celui pour le supprimer.
 
+## Création du mapping :
+* Avant de pouvoir appeler nos vus dans nos controleurs, il est nécessaire de mapper nos templates à nos actions de controlleur.
+* Pour cela modifier le fichier config/module.config.php et remplacer le tableau avec la clé view_manager par le suivant :
+``` php
+    'view_manager' => array(
+        'display_not_found_reason' => true,
+        'display_exceptions'       => true,
+        'doctype'                  => 'HTML5',
+        'not_found_template'       => 'error/404',
+        'exception_template'       => 'error/index',
+        'template_map' => [
+            'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
+            'jeu/jeu/index'           => __DIR__ . '/../view/jeu/jeu/index.phtml',
+            'jeu/jeu/add'             => __DIR__ . '/../view/jeu/jeu/add.phtml',
+            'error/404'               => __DIR__ . '/../view/error/404.phtml',
+            'error/index'             => __DIR__ . '/../view/error/index.phtml',
+        ],
+        'template_path_stack' => array(
+            'jeu' => __DIR__ . '/../view',
+        ),
+    ),
+```
+
 ## Appel de la vue dans le controlleur
 
 * Au niveau du controlleur, nous devons demander au framework d'appeler la vue crée et lui fournir les arguments attendus. Dans notre exemple il s'agit d'une liste de jeux. 
