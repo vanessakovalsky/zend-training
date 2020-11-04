@@ -8,7 +8,7 @@ Cet exercice a pour objectif :
 * Utiliser PHPmyAdmin ou la ligne de commande mysql pour créer une base de données.
 * Voici un fichier pour créer la première table :
 ``` SQL 
-CREATE TABLE jeu (id INTEGER PRIMARY KEY AUTOINCREMENT, editor varchar(100) NOT NULL, title varchar(100) NOT NULL);
+CREATE TABLE jeu (id INTEGER PRIMARY KEY AUTO_INCREMENT, editor varchar(100) NOT NULL, title varchar(100) NOT NULL);
 INSERT INTO jeu (editor, title) VALUES ('Asmodée', 'Les aventuriers du rail');
 INSERT INTO jeu (editor, title) VALUES ('Asmodée', 'Les aventuriers du rail Europe');
 INSERT INTO jeu (editor, title) VALUES ('Asmodée', 'Les aventuriers du rail Monde');
