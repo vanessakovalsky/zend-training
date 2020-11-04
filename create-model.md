@@ -151,12 +151,14 @@ class Module implements ConfigProviderInterface
 * La configuration de la connexion à notre db se fait dans le fichier config.autoload.php situé dans la dossier config
 * Il est nécessaire de définir son adaptateur pour lui donné les bons paramètres de connexions, exemple ci-dessous avec MySQL :
 ``` php
-$adapter = new Laminas\Db\Adapter\Adapter([
-    'driver'   => 'Mysqli',
-    'database' => 'laminas_db_example',
-    'username' => 'developer',
-    'password' => 'developer-password',
-]);
+return [
+    'db' => [
+        'driver'   => 'Mysqli',
+        'database' => 'db-name',
+        'username' => 'username',
+        'password' => 'password',
+    ]
+];
 ```
 * Voir la documentation pour les autres adaptateurs : https://docs.laminas.dev/laminas-db/adapter/ 
 
