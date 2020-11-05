@@ -8,7 +8,7 @@ Cet exercice a pour objectif :
 * Utiliser PHPmyAdmin ou la ligne de commande mysql pour créer une base de données.
 * Voici un fichier pour créer la première table :
 ``` SQL 
-CREATE TABLE jeu (id INTEGER PRIMARY KEY AUTOINCREMENT, editor varchar(100) NOT NULL, title varchar(100) NOT NULL);
+CREATE TABLE jeu (id INTEGER PRIMARY KEY AUTO_INCREMENT, editor varchar(100) NOT NULL, title varchar(100) NOT NULL);
 INSERT INTO jeu (editor, title) VALUES ('Asmodée', 'Les aventuriers du rail');
 INSERT INTO jeu (editor, title) VALUES ('Asmodée', 'Les aventuriers du rail Europe');
 INSERT INTO jeu (editor, title) VALUES ('Asmodée', 'Les aventuriers du rail Monde');
@@ -148,15 +148,17 @@ class Module implements ConfigProviderInterface
 * Notre modèle est maintenant déclaré, et injecter, il est donc prêt à être utilisé
 
 ## Configuration de la connexion à la BDD
-* La configuration de la connexion à notre db se fait dans le fichier config.autoload.php situé dans la dossier config
+* La configuration de la connexion à notre db se fait dans le fichier config/autoload/global.php situé dans la dossier config
 * Il est nécessaire de définir son adaptateur pour lui donné les bons paramètres de connexions, exemple ci-dessous avec MySQL :
 ``` php
-$adapter = new Laminas\Db\Adapter\Adapter([
-    'driver'   => 'Mysqli',
-    'database' => 'laminas_db_example',
-    'username' => 'developer',
-    'password' => 'developer-password',
-]);
+return [
+    'db' => [
+        'driver'   => 'Mysqli',
+        'database' => 'db-name',
+        'username' => 'username',
+        'password' => 'password',
+    ]
+];
 ```
 * Voir la documentation pour les autres adaptateurs : https://docs.laminas.dev/laminas-db/adapter/ 
 
