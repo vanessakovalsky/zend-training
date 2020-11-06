@@ -181,7 +181,8 @@ class Jeu
 * Il est nécessaire de créer la table depuis nos entités (au moins si celle-ci n'existe pas), cela peut se faire avec une commande directement :
 
 ``` shell
-php public/index.php doctrine:schema:update --force
+vendor/bin/doctrine-module orm:schema-tool:update --dump-sql
+vendor/bin/doctrine-module orm:schema-tool:update --force
 ```
 * Cette commande va mettre à jour le schéma de la base de données et ajouter les tables manquantes ou modifier celle qui existe pour les faire correspondre à notre entité.
 
