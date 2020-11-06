@@ -41,6 +41,27 @@ return [
     ],
 ];
 ``` 
+* Il est également nécessaire de mapper vos entités avec le dossier pour que Doctrine les reconnaissent, ajouter dans le fichier module/Jeu/config/module.config.php
+``` php
+use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
+return [
+// ....
+    'doctrine' => [
+        'driver' => [
+            __NAMESPACE__ . '_driver' => [
+                'class' => AnnotationDriver::class,
+                'cache' => 'array',
+                'paths' => [__DIR__ . '/../src/Entity']
+            ],
+            'orm_default' => [
+                'drivers' => [
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
+                ]
+            ]
+        ]
+    ] 
+];
+```
 
 ## Déclarer nos entités Jeux et Collections
 
