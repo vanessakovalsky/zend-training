@@ -1,0 +1,27 @@
+<?php
+
+$title = 'Mes jeux';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+    <a href="<?= $this->url('jeu', ['action' => 'add']) ?>">Ajouter un jeu</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>Title</th>
+    <th>Editeur</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($jeux as $jeu) : ?>
+    <tr>
+        <td><?= $this->escapeHtml($jeu['title']) ?></td>
+        <td><?= $this->escapeHtml($jeu['editor']) ?></td>
+        <td>
+            <a href="<?= $this->url('jeu', ['action' => 'edit', 'id' => $jeu->id]) ?>">Modifier</a>
+            <a href="<?= $this->url('jeu', ['action' => 'delete', 'id' => $jeu->id]) ?>">Supprimer</a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+</table>
