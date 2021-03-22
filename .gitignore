@@ -1,5 +1,5 @@
 corrige/.vagrant/
-./corrige/vendor/
+corrige/vendor/
 corrige/config/development.config.php
 corrige/data/cache/*
 !corrige/data/cache/.gitkeep
