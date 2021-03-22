@@ -17,7 +17,7 @@ Cet exercice a pour objectifs :
         /Model
     /view
         /jeu
-        /jeu
+            /jeu
 ```
 * Cette arborescence est l'arborescence standard d'un module dans Zend / Laminas
 * Les majuscules au début du nom du module, et au début du nom des dossiers dans src sont également obligatoires dans les conventions de codage de Zend / Laminas et permettent de faciliter l'auto-chargement.
@@ -72,7 +72,7 @@ return [
     ],
     'view_manager' => [
         'template_path_stack' => [
-            'album' => __DIR__ . '/../view',
+            'jeu' => __DIR__ . '/../view',
         ],
     ],
 ];

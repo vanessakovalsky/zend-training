@@ -71,11 +71,11 @@ $this->headTitle($title);
 </tr>
 <?php foreach ($jeux as $jeu) : ?>
     <tr>
-        <td><?= $this->escapeHtml($jeu->title) ?></td>
-        <td><?= $this->escapeHtml($jeu->editor) ?></td>
+        <td><?= $this->escapeHtml($jeu['title']) ?></td>
+        <td><?= $this->escapeHtml($jeu['editor']) ?></td>
         <td>
-            <a href="<?= $this->url('jeu', ['action' => 'edit', 'id' => $jeu->id]) ?>">Modifier</a>
-            <a href="<?= $this->url('jeu', ['action' => 'delete', 'id' => $jeu->id]) ?>">Supprimer</a>
+            <a href="<?= $this->url('jeu', ['action' => 'edit', 'id' => $jeu['id']]) ?>">Modifier</a>
+            <a href="<?= $this->url('jeu', ['action' => 'delete', 'id' => $jeu['id']]) ?>">Supprimer</a>
         </td>
     </tr>
 <?php endforeach; ?>
@@ -96,8 +96,6 @@ $this->headTitle($title);
         'exception_template'       => 'error/index',
         'template_map' => [
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'jeu/jeu/index'           => __DIR__ . '/../view/jeu/jeu/index.phtml',
-            'jeu/jeu/add'             => __DIR__ . '/../view/jeu/jeu/add.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ],

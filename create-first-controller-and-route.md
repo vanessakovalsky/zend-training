@@ -48,7 +48,7 @@ return [
 
     'view_manager' => [
         'template_path_stack' => [
-            'album' => __DIR__ . '/../view',
+            'jeu' => __DIR__ . '/../view',
         ],
     ],
 ];
