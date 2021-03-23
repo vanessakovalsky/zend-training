@@ -5,6 +5,14 @@ Cet exercice a pour objectif :
 * De valider les données
 * D'enregistrer les données reçues en base de données
 
+## Installer les composants laminas :
+* Il est nécessaire d'avoir l'extension intl de php installer et activer. Vous pouvez le vérifier en faisant php -m 
+* Il est nécessaire d'installer les composants laminas utile au formulaire :
+```
+composer require laminas/laminas-form
+composer require laminas/laminas-i18n
+```
+
 ## Création du formulaire
 
 * Pour créer notre formulaire, nous utilisons le composant Laminas\Form 
