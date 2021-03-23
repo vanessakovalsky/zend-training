@@ -63,5 +63,6 @@ class JeuTable
     {
         $this->tableGateway->delete(['id' => (int) $id]);
     }
+
 }
 

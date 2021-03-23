@@ -54,10 +54,10 @@ class JeuController extends AbstractActionController
 
         if (! $request->isPost()) {
             $view = new ViewModel([
-                'form' => $form
-            ]);
-            $view->setTemplate('jeu/jeu/form');
-            return $view;
+                    'form' => $form
+                ]);
+                $view->setTemplate('jeu/jeu/form');
+                return $view;
         }
 
         //Si des données ont été envoyer, nous créeons un nouvel objet Jeu, puis utilisons les filtres définis dans le modèles auquel nous soumettons les données reçues
@@ -82,17 +82,72 @@ class JeuController extends AbstractActionController
 
     public function editAction()
     {
-        $params = $this->params()->fromRoute();
-        $id = $params['id'];
+        $id = (int) $this->params()->fromRoute('id', 0);
 
-        $view = new ViewModel([
-            'id' => $id,
-        ]);
-        $view->setTemplate('jeu/jeu/form');
-        return $view;
+        if (0 === $id) {
+            return $this->redirect()->toRoute('jeu', ['action' => 'add']);
+        }
+
+        // Retrieve the jeu with the specified id. Doing so raises
+        // an exception if the jeu is not found, which should result
+        // in redirecting to the landing page.
+        try {
+            $jeu = $this->table->getJeu($id);
+        } catch (\Exception $e) {
+            return $this->redirect()->toRoute('jeu', ['action' => 'index']);
+        }
+
+        $form = new JeuForm();
+        $form->bind($jeu);
+        $form->get('submit')->setAttribute('value', 'Edit');
+
+        $request = $this->getRequest();
+        $viewData = ['id' => $id, 'form' => $form];
+
+        if (! $request->isPost()) {
+            $view = new ViewModel([
+                'form' => $form
+            ]);
+            $view->setTemplate('jeu/jeu/form');
+            return $view;
+        }
+
+        $form->setInputFilter($jeu->getInputFilter());
+        $form->setData($request->getPost());
+
+        if (! $form->isValid()) {
+            return $viewData;
+        }
+
+        $this->table->saveJeu($jeu);
+
+        // Redirect to jeux list
+        return $this->redirect()->toRoute('jeu', ['action' => 'index']);
     }
 
     public function deleteAction()
     {
+        $id = (int) $this->params()->fromRoute('id', 0);
+        if (!$id) {
+            return $this->redirect()->toRoute('jeu');
+        }
+
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            $del = $request->getPost('del', 'No');
+
+            if ($del == 'Yes') {
+                $id = (int) $request->getPost('id');
+                $this->table->deleteJeu($id);
+            }
+
+            // Redirect to list of jeux
+            return $this->redirect()->toRoute('jeu');
+        }
+
+        return [
+            'id'    => $id,
+            'jeu'   => $this->table->getJeu($id),
+        ];
     }
 }
