@@ -1,10 +1,12 @@
 <?php
 namespace Jeu\Form;
 
+use DomainException;
 use Laminas\Form\Form;
 use Laminas\Form\Element;
 use Laminas\Form\Element\Text;
 use Laminas\Form\Element\Submit;
+use Laminas\InputFilter\InputFilterInterface;
 
 class JeuForm extends Form
 {

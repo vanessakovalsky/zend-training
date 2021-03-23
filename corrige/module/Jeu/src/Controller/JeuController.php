@@ -63,13 +63,17 @@ class JeuController extends AbstractActionController
         //Si des données ont été envoyer, nous créeons un nouvel objet Jeu, puis utilisons les filtres définis dans le modèles auquel nous soumettons les données reçues
 
         $jeu = new Jeu();
-        //$form->setInputFilter($jeu->getInputFilter());
+        $form->setInputFilter($jeu->getInputFilter());
         $form->setData($request->getPost());
 
         // Nous vérifions si le données envoyées sont valide, si ce n'est pas le cas, nous renvoyons le formulaire
 
         if (! $form->isValid()) {
-            return ['form' => $form];
+            $view = new ViewModel([
+                'form' => $form
+            ]);
+            $view->setTemplate('jeu/jeu/form');
+            return $view;
         }
 
         // Si les données sont valide, nous hydratons l'objet jeu avec la fonction exchangeArray et utilisons la fonction saveJeu du Depôt (JeuTable)
@@ -100,23 +104,23 @@ class JeuController extends AbstractActionController
         $form = new JeuForm();
         $form->bind($jeu);
         $form->get('submit')->setAttribute('value', 'Edit');
+        $form->setInputFilter($jeu->getInputFilter());
 
         $request = $this->getRequest();
-        $viewData = ['id' => $id, 'form' => $form];
 
         if (! $request->isPost()) {
-            $view = new ViewModel([
-                'form' => $form
-            ]);
+            $view = new ViewModel(['form' => $form]);
             $view->setTemplate('jeu/jeu/form');
             return $view;
         }
 
-        $form->setInputFilter($jeu->getInputFilter());
         $form->setData($request->getPost());
 
         if (! $form->isValid()) {
-            return $viewData;
+            die(dump('form non valide'));
+            $view = new ViewModel(['form' => $form]);
+            $view->setTemplate('jeu/jeu/form');
+            return $view;
         }
 
         $this->table->saveJeu($jeu);

@@ -5,7 +5,7 @@ use Laminas\Filter\ToInt;
 use Laminas\Filter\StripTags;
 use Laminas\Filter\StringTrim;
 use Laminas\Validator\StringLength;
-use Laminas\Form\Annotation\InputFilter;
+use Laminas\InputFilter\InputFilter;
 use Laminas\Form\Exception\DomainException;
 use Laminas\InputFilter\InputFilterInterface;
 
@@ -14,6 +14,8 @@ class Jeu
     public $id;
     public $editor;
     public $title;
+
+    private $inputFilter;
 
     public function exchangeArray(array $data)
     {
@@ -38,6 +40,7 @@ class Jeu
             __CLASS__
         ));
     }
+
 
     public function getInputFilter()
     {
