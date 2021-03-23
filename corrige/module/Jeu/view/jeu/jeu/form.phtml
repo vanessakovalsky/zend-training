@@ -1,8 +1,45 @@
 <?php 
 $title = ($this->id) ? 'Modifier le jeu avec l\'id' . $this->id : 'Ajouter un jeu'; 
-echo $title;
+$this->headTitle($title);
 ?>
-<form>
-<input name='title' placeholder='Nom du jeu'></input>
-<input type="submit" value="submit" />
-</form>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<?php
+$form = $this->form;
+// This provides a default CSS class and placeholder text for the title element:
+
+    $jeu = $form->get('title');
+$jeu->setAttribute('class', 'form-control');
+$jeu->setAttribute('placeholder', 'Titre du jeu');
+
+// This provides a default CSS class and placeholder text for the artist element:
+$editor = $form->get('editor');
+$editor->setAttribute('class', 'form-control');
+$editor->setAttribute('placeholder', 'Editeur');
+
+// This provides CSS classes for the submit button:
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
+$form->setAttribute('action', $this->url('jeu', ['action' => 'add']));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+<?php // Wrap the elements in divs marked as form groups, and render the
+      // label, element, and errors separately within ?>
+<div class="form-group">
+    <?= $this->formLabel($jeu) ?>
+    <?= $this->formElement($jeu) ?>
+    <?= $this->formElementErrors()->render($jeu, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($editor) ?>
+    <?= $this->formElement($editor) ?>
+    <?= $this->formElementErrors()->render($editor, ['class' => 'help-block']) ?>
+</div>
+
+<?php
+echo $this->formSubmit($submit);
+echo $this->formHidden($form->get('id'));
+echo $this->form()->closeTag();

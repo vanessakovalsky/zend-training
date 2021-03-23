@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ebb52ea197d862b3563650efbdd0a3a",
+    "content-hash": "391d575379dc014da0db4521111a9d1a",
     "packages": [
         {
             "name": "brick/varexporter",
@@ -489,6 +489,181 @@
             "time": "2021-03-08T15:24:29+00:00"
         },
         {
+            "name": "laminas/laminas-filter",
+            "version": "2.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laminas/laminas-filter.git",
+                "reference": "dd295a15f5c13d0c13d69ca0107190b1f2083d91"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laminas/laminas-filter/zipball/dd295a15f5c13d0c13d69ca0107190b1f2083d91",
+                "reference": "dd295a15f5c13d0c13d69ca0107190b1f2083d91",
+                "shasum": ""
+            },
+            "require": {
+                "laminas/laminas-stdlib": "^3.3",
+                "laminas/laminas-zendframework-bridge": "^1.0",
+                "php": "^7.3 || ~8.0.0"
+            },
+            "conflict": {
+                "laminas/laminas-validator": "<2.10.1"
+            },
+            "replace": {
+                "zendframework/zend-filter": "^2.9.2"
+            },
+            "require-dev": {
+                "laminas/laminas-coding-standard": "~1.0.0",
+                "laminas/laminas-crypt": "^3.2.1",
+                "laminas/laminas-servicemanager": "^3.3",
+                "laminas/laminas-uri": "^2.6",
+                "pear/archive_tar": "^1.4.3",
+                "phpspec/prophecy-phpunit": "^2.0",
+                "phpunit/phpunit": "^9.3",
+                "psalm/plugin-phpunit": "^0.15.1",
+                "psr/http-factory": "^1.0",
+                "vimeo/psalm": "^4.6"
+            },
+            "suggest": {
+                "laminas/laminas-crypt": "Laminas\\Crypt component, for encryption filters",
+                "laminas/laminas-i18n": "Laminas\\I18n component for filters depending on i18n functionality",
+                "laminas/laminas-servicemanager": "Laminas\\ServiceManager component, for using the filter chain functionality",
+                "laminas/laminas-uri": "Laminas\\Uri component, for the UriNormalize filter",
+                "psr/http-factory-implementation": "psr/http-factory-implementation, for creating file upload instances when consuming PSR-7 in file upload filters"
+            },
+            "type": "library",
+            "extra": {
+                "laminas": {
+                    "component": "Laminas\\Filter",
+                    "config-provider": "Laminas\\Filter\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laminas\\Filter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Programmatically filter and normalize data and files",
+            "homepage": "https://laminas.dev",
+            "keywords": [
+                "filter",
+                "laminas"
+            ],
+            "support": {
+                "chat": "https://laminas.dev/chat",
+                "docs": "https://docs.laminas.dev/laminas-filter/",
+                "forum": "https://discourse.laminas.dev",
+                "issues": "https://github.com/laminas/laminas-filter/issues",
+                "rss": "https://github.com/laminas/laminas-filter/releases.atom",
+                "source": "https://github.com/laminas/laminas-filter"
+            },
+            "funding": [
+                {
+                    "url": "https://funding.communitybridge.org/projects/laminas-project",
+                    "type": "community_bridge"
+                }
+            ],
+            "time": "2021-03-16T14:37:02+00:00"
+        },
+        {
+            "name": "laminas/laminas-form",
+            "version": "2.16.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laminas/laminas-form.git",
+                "reference": "4262d6d6f0e7a47ef8db969481e59d58a0118f0e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laminas/laminas-form/zipball/4262d6d6f0e7a47ef8db969481e59d58a0118f0e",
+                "reference": "4262d6d6f0e7a47ef8db969481e59d58a0118f0e",
+                "shasum": ""
+            },
+            "require": {
+                "laminas/laminas-hydrator": "^3.2 || ^4.0",
+                "laminas/laminas-inputfilter": "^2.10",
+                "laminas/laminas-stdlib": "^3.3",
+                "laminas/laminas-zendframework-bridge": "^1.1",
+                "php": "^7.3 || ~8.0.0"
+            },
+            "conflict": {
+                "laminas/laminas-code": "< 3.5.0"
+            },
+            "replace": {
+                "zendframework/zend-form": "^2.14.3"
+            },
+            "require-dev": {
+                "doctrine/annotations": "^1.10.4",
+                "laminas/laminas-cache": "^2.9.0",
+                "laminas/laminas-captcha": "^2.9.0",
+                "laminas/laminas-code": "^3.5.0",
+                "laminas/laminas-coding-standard": "^1.0.0",
+                "laminas/laminas-escaper": "^2.6.1",
+                "laminas/laminas-eventmanager": "^3.3.0",
+                "laminas/laminas-filter": "^2.9.4",
+                "laminas/laminas-i18n": "^2.10.3",
+                "laminas/laminas-recaptcha": "^3.2.0",
+                "laminas/laminas-servicemanager": "^3.4.1",
+                "laminas/laminas-session": "^2.9.3",
+                "laminas/laminas-text": "^2.7.1",
+                "laminas/laminas-validator": "^2.13.4",
+                "laminas/laminas-view": "^2.11.4",
+                "phpspec/prophecy-phpunit": "^2.0",
+                "phpunit/phpunit": "^9.4.2"
+            },
+            "suggest": {
+                "laminas/laminas-captcha": "^2.9, required for using CAPTCHA form elements",
+                "laminas/laminas-code": "^3.5, required to use laminas-form annotations support",
+                "laminas/laminas-eventmanager": "^3.3, reuired for laminas-form annotations support",
+                "laminas/laminas-i18n": "^2.10, required when using laminas-form view helpers",
+                "laminas/laminas-recaptcha": "^3.2, in order to use the ReCaptcha form element",
+                "laminas/laminas-servicemanager": "^3.4.1, required to use the form factories or provide services",
+                "laminas/laminas-view": "^2.11.4, required for using the laminas-form view helpers"
+            },
+            "type": "library",
+            "extra": {
+                "laminas": {
+                    "component": "Laminas\\Form",
+                    "config-provider": "Laminas\\Form\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laminas\\Form\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Validate and display simple and complex forms, casting forms to business objects and vice versa",
+            "homepage": "https://laminas.dev",
+            "keywords": [
+                "form",
+                "laminas"
+            ],
+            "support": {
+                "chat": "https://laminas.dev/chat",
+                "docs": "https://docs.laminas.dev/laminas-form/",
+                "forum": "https://discourse.laminas.dev",
+                "issues": "https://github.com/laminas/laminas-form/issues",
+                "rss": "https://github.com/laminas/laminas-form/releases.atom",
+                "source": "https://github.com/laminas/laminas-form"
+            },
+            "funding": [
+                {
+                    "url": "https://funding.communitybridge.org/projects/laminas-project",
+                    "type": "community_bridge"
+                }
+            ],
+            "time": "2021-03-23T06:23:46+00:00"
+        },
+        {
             "name": "laminas/laminas-http",
             "version": "2.14.3",
             "source": {
@@ -553,6 +728,156 @@
                 }
             ],
             "time": "2021-02-18T21:58:11+00:00"
+        },
+        {
+            "name": "laminas/laminas-hydrator",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laminas/laminas-hydrator.git",
+                "reference": "fc201f29280a8308579e7fb4c1fbc2fb3dfdbd8f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laminas/laminas-hydrator/zipball/fc201f29280a8308579e7fb4c1fbc2fb3dfdbd8f",
+                "reference": "fc201f29280a8308579e7fb4c1fbc2fb3dfdbd8f",
+                "shasum": ""
+            },
+            "require": {
+                "laminas/laminas-stdlib": "^3.3",
+                "laminas/laminas-zendframework-bridge": "^1.0",
+                "php": "^7.3 || ~8.0.0"
+            },
+            "replace": {
+                "zendframework/zend-hydrator": "^3.0.2"
+            },
+            "require-dev": {
+                "laminas/laminas-coding-standard": "~1.0.0",
+                "laminas/laminas-eventmanager": "^3.2.1",
+                "laminas/laminas-modulemanager": "^2.8",
+                "laminas/laminas-serializer": "^2.9",
+                "laminas/laminas-servicemanager": "^3.3.2",
+                "phpunit/phpunit": "~9.3.0",
+                "psalm/plugin-phpunit": "^0.15.0",
+                "vimeo/psalm": "^4.2"
+            },
+            "suggest": {
+                "laminas/laminas-eventmanager": "^3.2, to support aggregate hydrator usage",
+                "laminas/laminas-serializer": "^2.9, to use the SerializableStrategy",
+                "laminas/laminas-servicemanager": "^3.3, to support hydrator plugin manager usage"
+            },
+            "type": "library",
+            "extra": {
+                "laminas": {
+                    "component": "Laminas\\Hydrator",
+                    "config-provider": "Laminas\\Hydrator\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laminas\\Hydrator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Serialize objects to arrays, and vice versa",
+            "homepage": "https://laminas.dev",
+            "keywords": [
+                "hydrator",
+                "laminas"
+            ],
+            "support": {
+                "chat": "https://laminas.dev/chat",
+                "docs": "https://docs.laminas.dev/laminas-hydrator/",
+                "forum": "https://discourse.laminas.dev",
+                "issues": "https://github.com/laminas/laminas-hydrator/issues",
+                "rss": "https://github.com/laminas/laminas-hydrator/releases.atom",
+                "source": "https://github.com/laminas/laminas-hydrator"
+            },
+            "funding": [
+                {
+                    "url": "https://funding.communitybridge.org/projects/laminas-project",
+                    "type": "community_bridge"
+                }
+            ],
+            "time": "2020-12-16T21:35:39+00:00"
+        },
+        {
+            "name": "laminas/laminas-inputfilter",
+            "version": "2.12.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laminas/laminas-inputfilter.git",
+                "reference": "b6ab28b425e626b12488fec243e02d36d8dffeff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laminas/laminas-inputfilter/zipball/b6ab28b425e626b12488fec243e02d36d8dffeff",
+                "reference": "b6ab28b425e626b12488fec243e02d36d8dffeff",
+                "shasum": ""
+            },
+            "require": {
+                "laminas/laminas-filter": "^2.9.1",
+                "laminas/laminas-servicemanager": "^3.3.1",
+                "laminas/laminas-stdlib": "^3.0",
+                "laminas/laminas-validator": "^2.11",
+                "laminas/laminas-zendframework-bridge": "^1.0",
+                "php": "^7.3 || ~8.0.0"
+            },
+            "replace": {
+                "zendframework/zend-inputfilter": "^2.10.1"
+            },
+            "require-dev": {
+                "laminas/laminas-coding-standard": "~1.0.0",
+                "laminas/laminas-db": "^2.12",
+                "phpspec/prophecy-phpunit": "^2.0",
+                "phpunit/phpunit": "^9.4.2",
+                "psalm/plugin-phpunit": "^0.15.1",
+                "psr/http-message": "^1.0",
+                "vimeo/psalm": "^4.6"
+            },
+            "suggest": {
+                "psr/http-message-implementation": "PSR-7 is required if you wish to validate PSR-7 UploadedFileInterface payloads"
+            },
+            "type": "library",
+            "extra": {
+                "laminas": {
+                    "component": "Laminas\\InputFilter",
+                    "config-provider": "Laminas\\InputFilter\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laminas\\InputFilter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Normalize and validate input sets from the web, APIs, the CLI, and more, including files",
+            "homepage": "https://laminas.dev",
+            "keywords": [
+                "inputfilter",
+                "laminas"
+            ],
+            "support": {
+                "chat": "https://laminas.dev/chat",
+                "docs": "https://docs.laminas.dev/laminas-inputfilter/",
+                "forum": "https://discourse.laminas.dev",
+                "issues": "https://github.com/laminas/laminas-inputfilter/issues",
+                "rss": "https://github.com/laminas/laminas-inputfilter/releases.atom",
+                "source": "https://github.com/laminas/laminas-inputfilter"
+            },
+            "funding": [
+                {
+                    "url": "https://funding.communitybridge.org/projects/laminas-project",
+                    "type": "community_bridge"
+                }
+            ],
+            "time": "2021-03-16T14:17:17+00:00"
         },
         {
             "name": "laminas/laminas-json",
