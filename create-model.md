@@ -16,6 +16,13 @@ INSERT INTO jeu (editor, title) VALUES ('Asmodée', 'Les aventuriers du rail Jap
 ```
 * Cela permet d'avoir une table de base et quelques entrées (vous pouvez enrichir cette table et les données avec l'ensemble des données entendues)
 
+## Installer le composant lamina-db
+* Le composant laminas-db n'est pas fourni avec le skeleton, il est donc nécessaire de l'installer
+* Depuis la racine du projet faire la commande : 
+```
+composer require laminas/laminas-db
+```
+
 ## Déclarer le modèle 
 * Le modèle est la déclaration du modèle de stockage de vos données, il est donc de votre ressort de savoir ce que vous souhaitez comme modèle de données, et les types de données à stocker dans celui-ci.
 * Les fichiers de modèle sont créés dans module/Jeu/src/Model/
@@ -246,6 +253,7 @@ return [
     }
 // ...
 ```
+* Il est nécessaire d'adapter la vue puisque nous récupérons un tableau d'objet dans la variable jeux.
 * Vous pouvez également utiliser les fonctions getJeu() dans l'affichage d'un jeu ou la fonction delete du modèle.
 
 -> Félicitation vous savez maintenant créer un modèle, le déclarer, l'injecter et l'utiliser dans un controleur.

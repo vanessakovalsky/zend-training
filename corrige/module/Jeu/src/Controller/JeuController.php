@@ -10,21 +10,26 @@ declare(strict_types=1);
 
 namespace Jeu\Controller;
 
-use Laminas\Mvc\Controller\AbstractActionController;
 use Laminas\View\Model\ViewModel;
+use Laminas\Mvc\Controller\AbstractActionController;
+use Jeu\Model\JeuTable;
 
 class JeuController extends AbstractActionController
 {
+    // Add this property:
+    private $table;
+
+    // Add this constructor:
+    public function __construct(JeuTable $table)
+    {
+        $this->table = $table;
+    }
+
+
     public function indexAction()
     {
-        $listeJeux = [
-            ['id' => 1, 'title' => 'Les aventuriers du rail', 'editor' => 'Asmodée'],
-            ['id' => 2, 'title' => 'Les aventuriers du rail Europe', 'editor' => 'Asmodée'],
-            ['id' => 3, 'title' => 'Les aventuriers du rail Monde', 'editor' => 'Asmodée'],
-            ['id' => 4, 'title' => 'Les aventuriers du rail Japon/Italie', 'editor' => 'Asmodée'],
-        ];
         $view = new ViewModel([   
-            'jeux' => $listeJeux,
+            'jeux' => $this->table->fetchAll(),
         ]);
         return $view;
     }

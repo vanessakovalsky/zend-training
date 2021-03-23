@@ -13,5 +13,10 @@
  */
 
 return [
-    // ...
+    'db' => [
+        'driver'   => 'Mysqli',
+        'database' => 'laminas',
+        'username' => 'laminas',
+        'password' => 'Formation2021',
+    ]
 ];

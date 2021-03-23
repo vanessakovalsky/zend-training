@@ -76,60 +76,9 @@ if ($auth->hasIdentity()) {
 * Ajouter le formulaire de login dans la barre de menu si l'utilisateur n'est pas connecté ou son nom d'utilisateur s'il est connecté (à faire au niveau du layout.phtml)
 
 
-## NE-PAS-FAIRE-CETTE-PARTIE Définition des rôles et des permissions :
-* Nous allons utiliser le module lmc-rbac-mvc qui vient s'appuyer sur le composant rbac de laminas, pour l'installer :
-``` 
-composer require lm-commons/lmc-rbac-mvc
-```
-* Il y a deux façons de définir des permissions :
-* * les guards qui bloquent l'accès à certaines routes ou controlleur
-* * Un service d'autorisations qui va définir plus finement des permissions.
+## Définition des rôles et des permissions :
 
-* Il est nécessaire de configurer dans le config/application.config.php quel fournisseur d'authentification nous souhaitons utilisé (par défaut c'est le Laminas\Authentication\AuthenticationService qui est utilisé), ici nous lui demandons d'utiliser le service der lmc-user-service que nous avons paramètrer précédemment :
-``` php
-return [
-    'service_manager' => [
-        'aliases' => [
-            'Laminas\Authentication\AuthenticationService' => 'lmcuser_auth_service'
-        ]
-    ]
-];
-```
-* Ensuite nous allons déclarer la config spécifique du module en copiant le fichier depuis /vendor/lm-commons/lmc-rbac-mvc/config/lmc_rbac.global.config.php.dist dans /config/autoload/lmc_rbac.global.config.php 
-* A l'intérieur de ce fichier, on va pouvoir déclarer nos rôles et les permissions associé :
-``` php
-    'lmc_rbac' => [
-        'role_provider' => [
-            'LmcRbacMvc\Role\InMemoryRoleProvider' => [
-                'admin' => [
-                    'children'    => ['member'],
-                    'permissions' => ['jeu.delete']
-                ],
-                'member' => [
-                    'children'    => ['guest'],
-                    'permissions' => ['jeu.edit', 'jeu.add']
-                ],
-                'guest' => [
-                    'permissions' => ['jeu.index']
-                ]
-            ]
-        ]
-    ]
-```
-* Ici nous avons mis en dur les rôles et les permissions, cela convient lorsqu'on est sur une application de petite taille.
-* En utilisant Doctrine, on peut également définir les rôles comme des entités avec par exemple : 
-``` php 
-return [
-    'lmc_rbac' => [
-        'role_provider' => [
-            'LmcRbacMvc\Role\ObjectRepositoryRoleProvider' => [
-                'object_repository'  => 'App\Repository\RoleRepository',
-                'role_name_property' => 'name'
-            ]
-        ]
-    ]
-];
-```
+*  
 
 ## Bloque des routes avec les guards
 * Les guards permettent de bloquer complétement l'accès à une route en fonction du rôle de l'utilisateur :

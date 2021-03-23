@@ -16,8 +16,8 @@ $this->headTitle($title);
 </tr>
 <?php foreach ($jeux as $jeu) : ?>
     <tr>
-        <td><?= $this->escapeHtml($jeu['title']) ?></td>
-        <td><?= $this->escapeHtml($jeu['editor']) ?></td>
+        <td><?= $this->escapeHtml($jeu->title) ?></td>
+        <td><?= $this->escapeHtml($jeu->editor) ?></td>
         <td>
             <a href="<?= $this->url('jeu', ['action' => 'edit', 'id' => $jeu->id]) ?>">Modifier</a>
             <a href="<?= $this->url('jeu', ['action' => 'delete', 'id' => $jeu->id]) ?>">Supprimer</a>
