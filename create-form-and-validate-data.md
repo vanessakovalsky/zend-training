@@ -244,7 +244,7 @@ echo $this->form()->closeTag();
 * Une fois le form crée, nous lui passons les données du modèle avec la fonction bind(). Cette méthode agit dans les deux sens :
 * * lors de l'instanciation du formulaire, on associe l'objet du modèle au champs de formulaire
 * * après la validation du formulaire, cela permet de mettre à jour l'objet du modèle
-* Pour fonctionner la méthode bind a besoin d'une méthode supplémentaire dans le JeuTable : getArrayCopy() qui permet de retourner une copie de l'objet qui est passé au formulaire et permet avec la fonction exchangeArray de rehydrater automatiquement notre objet lors du traitement du formulaire :
+* Pour fonctionner la méthode bind a besoin d'une méthode supplémentaire dans le modèle Jeu : getArrayCopy() qui permet de retourner une copie de l'objet qui est passé au formulaire et permet avec la fonction exchangeArray de rehydrater automatiquement notre objet lors du traitement du formulaire :
 ``` php
     public function getArrayCopy()
     {
