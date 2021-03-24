@@ -70,7 +70,7 @@ protected function updateConfig($config)
     $config['db'] = [];
     return $config;
 }
-protected function mockAlbumTable()
+protected function mockJeuTable()
 {
     $this->jeuTable = $this->prophesize(JeuTable::class);
     return $this->jeuTable;
@@ -83,8 +83,8 @@ protected function mockAlbumTable()
 ``` php
 public function testAddActionRedirectsAfterValidPost()
 {
-    $this->albumTable
-    ->saveAlbum(Argument::type(Jeu::class))
+    $this->jeuTable
+    ->saveJeu(Argument::type(Jeu::class))
     ->shouldBeCalled();
     $postData = [
     'title' => 'Spendor',
@@ -107,7 +107,7 @@ namespace JeuTest\Model;
 use Jeu\Model\Jeu;
 use PHPUnit\Framework\TestCase;
 
-class AlbumTest extends TestCase
+class JeuTest extends TestCase
 {
     public function testInitialJeuValuesAreNull()
     {
@@ -152,7 +152,7 @@ class AlbumTest extends TestCase
         'title' => 'Tea For 2'
         ]);
         $jeu->exchangeArray([]);
-        $this->assertNull($jeu->editor, '"artist" should default to null');
+        $this->assertNull($jeu->editor, '"editor" should default to null');
         $this->assertNull($jeu->id, '"id" should default to null');
         $this->assertNull($jeu->title, '"title" should default to null');
     }
@@ -161,7 +161,7 @@ class AlbumTest extends TestCase
     {
         $jeu = new Jeu();
         $data = [
-        'editor' => 'some artist',
+        'editor' => 'some editor',
         'id' => 123,
         'title' => 'some title'
         ];
@@ -219,7 +219,7 @@ class JeuTableTest extends TestCase
     $this->tableGateway->delete(['id' => 123])->shouldBeCalled();
     $this->jeuTable->deleteJeu(123);
     }
-    public function testSaveJeuWillUpdateExistingAlbumsIfTheyAlreadyHaveAnId()
+    public function testSaveJeuWillUpdateExistingJeuxIfTheyAlreadyHaveAnId()
     {
         $jeuData = [
         'id' => 123,
