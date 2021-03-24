@@ -18,5 +18,10 @@ return [
         'database' => 'laminas',
         'username' => 'laminas',
         'password' => 'Formation2021',
-    ]
+    ],
+    'service_manager' => [
+        'factories' => [
+            'Laminas\Db\Adapter\Adapter' => 'Laminas\Db\Adapter\AdapterServiceFactory',
+        ],
+    ],
 ];
